@@ -19,4 +19,7 @@ group :development do
 
   # rspec - https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 3.0'
+
+  # rubocop - https://github.com/bbatsov/rubocop
+  gem 'rubocop', require: false
 end
