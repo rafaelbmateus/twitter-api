@@ -12,8 +12,8 @@ gem 'rails-api'
 # database sqlite3 - https://github.com/sparklemotion/sqlite3-ruby
 gem 'sqlite3'
 
-# serializers
-# gem 'active_model_serializers'
+# serializers - https://github.com/rails-api/active_model_serializers
+gem 'active_model_serializers'
 
 # gems development
 group :development do
