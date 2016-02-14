@@ -21,7 +21,7 @@ module Api
 
       # POST /tweets
       # POST /tweets.json
-      # curl -X POST -H "Content-type: application/json" -d '{"tweet":{"content":"Test"}}' http://localhost:3000/api/v1/tweets
+      # curl -X POST -H "Content-type: application/json" -d '{"tweet":{"user_id":"1","content":"Test"}}' http://localhost:3000/api/v1/tweets
       def create
         @tweet = Tweet.new(tweet_params)
 
@@ -34,7 +34,7 @@ module Api
 
       # PATCH/PUT /tweets/1
       # PATCH/PUT /tweets/1.json
-      # curl -X PUT -H "Content-Type: application/json" -d '{"tweet":{"content":"Alter test"}}' http://localhost:3000/api/v1/tweets/1
+      # curl -X PUT -H "Content-Type: application/json" -d '{"tweet":{"user_id":"1","content":"Alter test"}}' http://localhost:3000/api/v1/tweets/1
       def update
         @tweet = Tweet.find(params[:id])
 
@@ -61,7 +61,7 @@ module Api
         end
 
         def tweet_params
-          params.require(:tweet).permit(:content)
+          params.require(:tweet).permit(:user_id, :content)
         end
     end
   end

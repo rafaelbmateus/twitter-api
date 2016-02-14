@@ -7,9 +7,9 @@ module Api
       # GET /users.json
       # curl -X GET -H "Content-Type: application/json" http://localhost:3000/api/v1/users
       def index
-        users = User.all
+        @users = User.all
 
-        render json: users
+        render json: @users
       end
 
       # GET /users/1
@@ -52,6 +52,13 @@ module Api
         @user.destroy
 
         head :no_content
+      end
+
+      def tweets
+        @user = User.find(params[:id])
+        @tweets = @user.tweets
+
+        render json: @tweets
       end
 
       private
