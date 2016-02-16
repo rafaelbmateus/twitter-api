@@ -13,7 +13,7 @@ gem 'rails-api'
 gem 'sqlite3'
 
 # serializers - https://github.com/rails-api/active_model_serializers
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.8.3'
 
 # gems development
 group :development do
