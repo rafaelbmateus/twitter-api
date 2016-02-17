@@ -21,7 +21,7 @@ module Api
 
       # POST /users
       # POST /users.json
-      # curl -X POST -H "Content-type: application/json" -d '{"user":{"name":"@rafaelbmateus"}}' http://localhost:3000/api/v1/users
+      # curl -X POST -H "Content-type: application/json" -d '{"user":{"name":"@rafaelbmateus", "email":"rafaelmateus@hotmail.com","password":"123123123"}}' http://localhost:3000/api/v1/users
       def create
         @user = User.new(user_params)
 
@@ -54,6 +54,9 @@ module Api
         head :no_content
       end
 
+      # GET /users/:id_user/tweets
+      # GET /users/:id_user/tweets.json
+      # curl -X GET -H "Content-Type: application/json" http://localhost:3000/api/v1/users/1/tweets
       def tweets
         @user = User.find(params[:id])
         @tweets = @user.tweets
@@ -68,7 +71,7 @@ module Api
         end
 
         def user_params
-          params.require(:user).permit(:name)
+          params.require(:user).permit(:name, :email, :password, :password_confirmation)
         end
     end
   end
